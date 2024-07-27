@@ -39,5 +39,5 @@ jobs:
         with:
           server: "ftp.growinvoice.com"
           username: "u644247801.growinvoice_homepage"
-          password: ${{ secrets.GIT_CPANEL_REACT_PWD }}
           password: "Growinvoice@2024"
+          local-dir: ./dist/
