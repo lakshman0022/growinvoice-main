@@ -1,34 +1,37 @@
 @@include('header.htm')
 
-@@include('components/navbar.htm',{
-  "nav": "home"
+@@include('components/top-nav.htm')
+
+@@include('components/navbar-inner.htm',{
+  "nav": "",
 })
 
-@@include('components/hero.htm')
+@@include('components/payment-hero.htm')
 
-@@include('components/client.htm')
+@@include('components/rating.htm')
 
-@@include('components/services.htm')
+@@include('components/paymentCoreFeatures.htm')
 
-@@include('components/counter.htm')
+@@include('components/whyUs.htm')
 
-@@include('components/vision.htm')
+@@include('components/paymentFeatures.htm')
 
-@@include('components/solution.htm')
+@@include('components/members.htm')
 
-@@include('components/integration.htm')
+@@include('components/price.htm',{
+  "Spacing": "pt-150 mb-150 max-md:mb-25",
+})
+
+@@include('components/clientV2.htm')
+
+@@include('components/blogV2.htm')
 
 @@include('components/faq.htm')
 
-@@include('components/testimonial.htm',{
-  "topSpacing": "pt-150"
+@@include('components/ctaV2.htm',{
+  "ctaTitle": "Start your best payment <br> experience now!",
+  "ctaSubTitle": "By creating a custom Web design for your business, we can bring your vision to life."
 })
-
-@@include('components/blog.htm',{
-  "blogPadding": "pb-150"
-})
-
-@@include('components/cta.htm')
 
 @@include('components/footer.htm')
 
