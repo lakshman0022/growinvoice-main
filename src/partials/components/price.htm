@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div class="relative md:z-10">
+    <div class="relative md:z-10 container">
       <div class="absolute left-1/2 top-150 -translate-x-1/2 -translate-y-1/2 flex max-md:flex-col -z-10 max-md:hidden">
         <div
           class="max-1xl:w-[335px] max-1xl:h-[335px]  1xl:w-[442px] 1xl:h-[442px]  rounded-full bg-primary-200/20 blur-[145px]"
@@ -37,9 +37,10 @@
       <div
         class="absolute left-1/2 p-[350px] top-25 -translate-x-1/2 -translate-y-1/2 bg-[url('../images/price-gradient.png')] bg-no-repeat bg-center bg-contain opacity-70 md:hidden"
       ></div>
-      <div class="flex max-lg:flex-col items-center gap-8 relative max-md:z-10 pb-12">
-        <div class="bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5 ">
-          <div class="border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-8 max-md:p-5">
+    
+      <div  class="grid grid-cols-3 max-md:grid-cols-1 items-stretch gap-8  max-md:z-10 pb-12 ">
+        <div class="bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5">
+          <div class="border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-8 max-md:p-5 h-full">
             <h3 class="mb-2">Basic Plan</h3>
             <p class="mb-6">Ideal for small businesses or startups just beginning their journey</p>
             <div class="price-month mb-16">
@@ -54,7 +55,7 @@
             <ul
               class=" relative after:absolute after:-top-12 after:h-0.5 after:w-full after:bg-[url('../images/banking/border.svg')] dark:after:bg-[url('../images/banking/border-dark.svg')] after:bg-center after:bg-no-repeat after:bg-full"
             >
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
                   width="20"
                   height="20"
@@ -78,10 +79,10 @@
 
                 <span>Cost-Effective- Affordable monthly fee</span>
               </li>
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
-                  width="20"
-                  height="20"
+                  width="25"
+                  height="25"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,9 +100,9 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>Simple Integration-Easy to set up and integrate with your existing systems.</span>
+                <span>Easy Setup: Integrates smoothly with current systems.</span>
               </li>
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
                   width="20"
                   height="20"
@@ -122,7 +123,7 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>Basic Reporting- fundamental transaction reports to help you track your payments.</span>
+                <span>Basic Reports: Essential transaction tracking.</span>
               </li>
               <!-- <li class="mb-6 flex items-center gap-3.5">
                 <svg
@@ -157,9 +158,9 @@
             </a>
           </div>
         </div>
-        <div class="bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5 ">
+        <div class="bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5">
           <div
-            class="border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-8 max-md:p-5 lg:px-8 lg:pt-3 lg:pb-15  "
+            class="border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-8 max-md:p-5 lg:px-8 lg:pt-3 lg:pb-15  h-full"
           >
             <div class="flex justify-end mb-2.5">
               <span class=" -mr-4 bg-primary text-paragraph py-1.5 px-3 rounded-full font-medium"> Save 40% </span>
@@ -178,7 +179,7 @@
             <ul
               class=" relative after:absolute after:-top-12 after:h-0.5 after:w-full after:bg-[url('../images/banking/border.svg')] dark:after:bg-[url('../images/banking/border-dark.svg')] after:bg-center after:bg-no-repeat after:bg-full"
             >
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
                   width="20"
                   height="20"
@@ -199,9 +200,9 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>Enhanced Payment options - Includes additional payment methods such as mobile wallets.</span>
+                <span>Mobile wallet payments enabled.</span>
               </li>
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
                   width="20"
                   height="20"
@@ -222,9 +223,9 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>Comprehensive reporting - Detailed transaction reports and analytics to help you understand your payment trends and customer behavior.</span>
+                <span>In-depth payment analytics.</span>
               </li>
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
                   width="20"
                   height="20"
@@ -245,7 +246,8 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>Customer support - Access to dedicated customer support to assist with any issues or questions.</span>
+                <span>24/7 customer support access.
+                </span>
               </li>
               <!-- <li class="mb-6 flex items-center gap-3.5">
                 <svg
@@ -280,8 +282,8 @@
             </a>
           </div>
         </div>
-        <div class="bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5 ">
-          <div class="border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-8 max-md:p-5">
+        <div class="bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5">
+          <div class="border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-8 max-md:p-5 h-full">
             <h3 class="mb-2">Premium Plan</h3>
             <p class="mb-6">Ideal for large enterprises.</p>
             <div class="price-month mb-16">
@@ -296,7 +298,7 @@
             <ul
               class=" relative after:absolute after:-top-12 after:h-0.5 after:w-full after:bg-[url('../images/banking/border.svg')] dark:after:bg-[url('../images/banking/border-dark.svg')] after:bg-center after:bg-no-repeat after:bg-full"
             >
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
                   width="20"
                   height="20"
@@ -317,12 +319,12 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>All-Inclusive Payment Options- Support for all available payment methods, including advanced options like cryptocurrencies.</span>
+                <span>Pay with any method, even crypto</span>
               </li>
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
-                  width="20"
-                  height="20"
+                  width="25"
+                  height="25"
                   viewBox="0 0 20 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -340,9 +342,9 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>Custom Integrations -Tailored integration solutions to fit your unique business needs.</span>
+                <span>Custom-fit integrations for your business.</span>
               </li>
-              <li class="mb-6 flex items-center gap-3.5">
+              <li class="mb-6 flex items-center gap-5">
                 <svg
                   width="20"
                   height="20"
@@ -363,7 +365,7 @@
                     class="fill-paragraph"
                   />
                 </svg>
-                <span>Priority Customer Support -24/7 dedicated support with priority handling of issues and inquiries.</span>
+                <span>Priority support, 24/7 fast track.</span>
               </li>
               <!-- <li class="mb-6 flex items-center gap-3.5">
                 <svg
