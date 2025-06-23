@@ -1,6 +1,6 @@
-# Aplio
+# GrowInvoice
 
-Aplio HTML Theme Development Structure
+GrowInvoice HTML Theme Development Structure
 
 ** Recommended modules and Installation process **
 
@@ -9,4 +9,4 @@ Aplio HTML Theme Development Structure
 3. After downloading the project run **yarn** to install the modules.
 4. After successfully installed all require modules, run **yarn dev** to run the project. this will create a dist folder, where all the developed file will remain.
 5. To built the final project, run **yarn build** command.
-6. For more details, read the full documenation [here](https://docs.staticmania.com/aplio/html/introduction).
+6. For more details, read the full documenation [here](https://docs.staticmania.com/GrowInvoice/html/introduction).
