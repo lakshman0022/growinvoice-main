@@ -88,9 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             plans.forEach((plan, index) => {
                 const yearlyPrice = (plan.price * 12).toFixed(2);
-                
-                // We will highlight the second plan (index 1) as "Recommended"
-                const isRecommended = index === 1;
+
+                // We will highlight the first plan (index 0) as "Recommended"
+                const isRecommended = index === 0;
 
                 const featuresHtml = plan.PlanFeatures
                     .map(feature => `
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <h3 class="mb-2">${plan.name}</h3>
                         
                         <div class="price-month mb-16">
-                            <h2>$<span>${plan.price.toFixed(2)}</span></h2>
+                            <h2>₹<span>${plan.price.toFixed(2)}</span></h2>
                             <p>Per Month</p>
                         </div>
                         <div class="price-year mb-16" style="display: none;">
