@@ -1,111 +1,33 @@
-<section class="py-[200px] max-md:pt-150 relative overflow-hidden">
-  <div
-    class="absolute left-1/2 top-0 w-full h-[550px] -translate-x-1/2 bg-cover  bg-[url('../images/hero-gradient.png')] bg-no-repeat bg-center opacity-70 md:hidden -z-10"
-  ></div>
-  <div
-    class="container relative"
-    data-aos="fade-up"
-    data-aos-offset="200"
-    data-aos-duration="1000"
-    data-aos-once="true"
-  >
-    <div class="mb-12 text-center max-w-[475px] mx-auto">
-      <p class="section-tagline">Contact</p>
+<section class="bg-white dark:bg-dark-300 pt-32 pb-40 max-lg:pt-24 max-lg:pb-32 max-md:pt-20 max-md:pb-24 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex max-md:flex-col -z-10 max-md:hidden">
+    <div class="max-1xl:w-[335px] max-1xl:h-[335px] 1xl:w-[442px] 1xl:h-[442px] rounded-full bg-primary-200/20 blur-[145px]"></div>
+    <div class="max-1xl:w-[335px] max-1xl:h-[335px] 1xl:w-[442px] 1xl:h-[442px] rounded-full bg-primary-200/25 -ml-[170px] max-md:ml-0 blur-[145px]"></div>
+  </div>
+  <div class="absolute left-1/2 top-1/2 p-[350px] -translate-x-1/2 -translate-y-1/2 bg-[url('../images/hero-gradient.png')] bg-no-repeat bg-center bg-contain opacity-70 md:hidden -z-10"></div>
 
-      <h2>Request A Demo</h2>
-    </div>
-    <div class="relative z-10 max-w-[850px] mx-auto">
-      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex -z-10 max-md:hidden">
-        <div class="w-[442px] h-[442px] rounded-full bg-primary-200/20 blur-[145px]"></div>
-        <div class="w-[442px] h-[442px] rounded-full bg-primary-200/25 -ml-[170px] blur-[145px]"></div>
-        <div class="w-[442px] h-[442px] rounded-full bg-primary-200/20 -ml-[170px] blur-[145px]"></div>
-      </div>
-      <div class=" bg-white dark:bg-dark-200 rounded-medium p-2.5  shadow-nav">
-        <div
-          class=" bg-white dark:bg-dark-200 border border-dashed rounded border-gray-100 dark:border-borderColour-dark p-12 max-md:p-5  "
-        >
-          <form>
-            <div class="grid grid-cols-12 max-md:gap-y-10 md:gap-x-12 md:gap-8">
-              <div class="max-md:col-span-full md:col-span-6">
-                <label
-                  for="username"
-                  class="block text-sm font-medium font-jakarta_sans text-paragraph dark:text-white mb-2"
-                >
-                  Your name
-                </label>
-                <input
-                  type="text"
-                  name="first-name"
-                  id="username"
-                  placeholder="Name"
-                  class="block w-full text-sm rounded-[48px] border border-borderColour dark:border-borderColour-dark py-2.5 px-5 text-paragraph-light placeholder:text-paragraph-light dark:placeholder:text-paragraph-light outline-none bg-white dark:bg-dark-200 focus:border-primary dark:focus:border-primary  duration-300 transition-all"
-                />
-              </div>
-              <div class="max-md:col-span-full md:col-span-6">
-                <label
-                  for="companyname"
-                  class="block text-sm font-medium font-jakarta_sans text-paragraph dark:text-white mb-2"
-                >
-                  Comapny name
-                </label>
-                <input
-                  type="text"
-                  name="company-name"
-                  id="companyname"
-                  placeholder="Company Name"
-                  class="block w-full text-sm rounded-[48px] border border-borderColour dark:border-borderColour-dark py-2.5 px-5 text-paragraph-light placeholder:text-paragraph-light dark:placeholder:text-paragraph-light outline-none bg-white dark:bg-dark-200 focus:border-primary dark:focus:border-primary  duration-300 transition-all"
-                />
-              </div>
-              <div class="max-md:col-span-full md:col-span-6">
-                <label
-                  for="contactno"
-                  class="block text-sm font-medium font-jakarta_sans text-paragraph dark:text-white mb-2"
-                >
-                  Contact No.
-                </label>
-                <input
-                  type="text"
-                  name="contact-number"
-                  id="contactno"
-                  placeholder="Contact Number"
-                  class="block w-full text-sm rounded-[48px] border border-borderColour dark:border-borderColour-dark py-2.5 px-5 text-paragraph-light placeholder:text-paragraph-light dark:placeholder:text-paragraph-light outline-none bg-white dark:bg-dark-200 focus:border-primary dark:focus:border-primary  duration-300 transition-all"
-                />
-              </div>
-              <div class="max-md:col-span-full md:col-span-6">
-                <label
-                  for="email"
-                  class="block text-sm font-medium font-jakarta_sans text-paragraph dark:text-white mb-2"
-                >
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  name="first-name"
-                  id="email"
-                  placeholder="Email"
-                  class="block w-full text-sm rounded-[48px] border border-borderColour dark:border-borderColour-dark py-2.5 px-5 text-paragraph-light   placeholder:text-paragraph-light outline-none bg-white dark:bg-dark-200 focus:border-primary dark:focus:border-primary  duration-300 transition-all"
-                />
-              </div>
-              <div class="col-span-full">
-                <label
-                  for="message"
-                  class="block text-sm font-medium font-jakarta_sans text-paragraph dark:text-white mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  name="first-name"
-                  id="message"
-                  rows="10"
-                  class="block w-full text-sm rounded border border-borderColour dark:border-borderColour-dark py-2.5 px-5   text-paragraph-light placeholder:text-paragraph-light outline-none resize-none bg-white dark:bg-dark-200 focus:border-primary dark:focus:border-primary  duration-300 transition-all"
-                ></textarea>
-              </div>
-              <div class="mx-auto col-span-full text-center">
-                <button class="btn">Request Now</button>
-              </div>
-            </div>
-          </form>
-        </div>
+  <div class="container mx-auto px-4">
+    <div class="text-center max-w-5xl mx-auto relative z-10">
+      <!-- Main heading -->
+      <h2 class="text-4xl max-lg:text-3xl max-md:text-2xl font-bold text-paragraph dark:text-white mb-6">
+        Get In Touch
+      </h2>
+      
+      <!-- Subtitle -->
+      <p class="text-lg max-md:text-base text-paragraph dark:text-white/80 mb-16 max-w-3xl mx-auto">
+        We're here to help if you have any questions. Schedule a call with us, message us, or send an email.
+      </p>
+      
+      <!-- Request Demo Button -->
+      <div class="flex justify-center mb-8">
+        <a href="https://timesync.novocall.co/growglobal/lets-meet" target="_blank" class="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white border border-primary rounded-full px-10 py-5 font-medium hover:shadow-lg transition-all duration-300 group">
+          <!-- Phone icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white group-hover:scale-110 transition-transform duration-300">
+            <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.095 3.90347 2.12787 3.62476 2.21649 3.36162C2.30512 3.09849 2.44756 2.85669 2.63476 2.65162C2.82196 2.44655 3.0498 2.28271 3.30379 2.17052C3.55777 2.05833 3.83233 2.00026 4.10999 2H7.10999C7.59531 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04207 3.23945 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.9736 7.27691 9.89384 7.65088C9.81408 8.02485 9.6288 8.36811 9.35999 8.64L8.08999 9.91C9.51355 12.4135 11.5865 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3712 15.9751 14.1859 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          
+          <span class="text-lg">Request Demo</span>
+        </a>
       </div>
     </div>
   </div>
