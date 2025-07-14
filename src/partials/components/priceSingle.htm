@@ -1,4 +1,4 @@
-<section class="bg-white dark:bg-dark-300 max-lg:pt-150 pt-[240px] pb-[150px] max-md:mb-25 relative overflow-hidden">
+<section class="bg-white dark:bg-dark-300 max-lg:pt-150 pt-[240px] pb-0 md:pb-[150px] max-md:mb-1 relative overflow-hidden">
   <div class="container mx-auto px-4">
     <div
       class="mb-12 text-center max-w-[948px] mx-auto relative z-10"
@@ -49,7 +49,7 @@
       ></div>
       
       <!-- Pricing Plans Container -->
-      <div id="pricing-plans-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 relative max-md:z-10 mb-10">
+      <div id="pricing-plans-container" class="grid grid-cols-1 md:grid-cols-2 gap-8 relative max-md:z-10 mb-4 md:mb-10">
         <!-- Plans will be dynamically inserted here -->
       </div>
 
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         plans.forEach((plan, idx) => {
             // For the 5th card, add col-span-2 and center it
-            const extraClass = (idx === 4) ? 'md:col-span-2 md:mx-auto max-w-xl' : '';
+            const extraClass = (idx === 4) ? 'md:col-span-2 md:mx-auto md:max-w-xl' : '';
             const planCard = document.createElement('div');
             planCard.className = `bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5 w-full h-full flex flex-col ${plan.recommended ? 'border-2 border-primary' : ''} ${extraClass}`;
             
