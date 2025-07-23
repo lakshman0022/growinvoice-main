@@ -169,8 +169,8 @@
       <h3 class="text-3xl font-bold text-center mb-4 text-paragraph dark:text-white">Reserve Your Spot — It's Free!</h3>
       <p class="text-center text-lg mb-6 text-gray-600 dark:text-gray-300">Enter your name and email below to join the webinar.</p>
 
-      <form method="post" action="https://sendfox.com/form/1xkdnm/m2e6o6" class="sendfox-form space-y-4" id="m2e6o6" data-async="false" data-recaptcha="false">
-        <div>
+      <form method="post" action="https://sendfox.com/form/1xkdnm/m2e6o6" class="sendfox-form space-y-4" id="m2e6o6" data-async="true" data-recaptcha="false">
+        <p>
           <label for="sendfox_form_name" class="block text-sm font-semibold text-paragraph dark:text-white mb-2">First Name:</label>
           <input type="text" 
                  id="sendfox_form_name" 
@@ -178,9 +178,9 @@
                  name="first_name" 
                  required 
                  class="w-full border border-borderColour dark:border-borderColour-dark rounded-lg px-4 py-3 bg-white dark:bg-dark-300 text-paragraph dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" />
-        </div>
+        </p>
         
-        <div>
+        <p>
           <label for="sendfox_form_last_name" class="block text-sm font-semibold text-paragraph dark:text-white mb-2">Last Name:</label>
           <input type="text" 
                  id="sendfox_form_last_name" 
@@ -188,9 +188,9 @@
                  name="last_name" 
                  required 
                  class="w-full border border-borderColour dark:border-borderColour-dark rounded-lg px-4 py-3 bg-white dark:bg-dark-300 text-paragraph dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" />
-        </div>
+        </p>
         
-        <div>
+        <p>
           <label for="sendfox_form_email" class="block text-sm font-semibold text-paragraph dark:text-white mb-2">Email:</label>
           <input type="email" 
                  id="sendfox_form_email" 
@@ -198,14 +198,16 @@
                  name="email" 
                  required 
                  class="w-full border border-borderColour dark:border-borderColour-dark rounded-lg px-4 py-3 bg-white dark:bg-dark-300 text-paragraph dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" />
-        </div>
+        </p>
         
         <!-- no botz please -->
-        <div class="absolute left-[-5000px]" aria-hidden="true">
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
           <input type="text" name="a_password" tabindex="-1" value="" autocomplete="off" />
         </div>
         
-        <button type="submit" class="btn w-full">Register Now</button>
+        <p>
+          <button type="submit" class="btn w-full">Register Now</button>
+        </p>
       </form>
 
       <!-- SendFox script -->
