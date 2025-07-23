@@ -1,0 +1,337 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+
+        // Simple Theme Toggle Function
+        function toggleTheme() {
+          console.log('Toggle theme function called');
+          
+          var html = document.documentElement;
+          var isDark = html.classList.contains('dark');
+          
+          console.log('Currently dark mode:', isDark);
+          
+          if (isDark) {
+            // Switch to light mode
+            html.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+            console.log('Switched to light mode');
+          } else {
+            // Switch to dark mode  
+            html.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+            console.log('Switched to dark mode');
+          }
+          
+          // Update icons
+          updateThemeIcons();
+        }
+        
+        function updateThemeIcons() {
+          var html = document.documentElement;
+          var isDark = html.classList.contains('dark');
+          var darkIcon = document.getElementById('theme-toggle-dark-icon');
+          var lightIcon = document.getElementById('theme-toggle-light-icon');
+          
+          if (isDark) {
+            // Dark mode: show light icon (sun)
+            if (lightIcon) lightIcon.style.display = 'block';
+            if (darkIcon) darkIcon.style.display = 'none';
+          } else {
+            // Light mode: show dark icon (moon)
+            if (darkIcon) darkIcon.style.display = 'block';
+            if (lightIcon) lightIcon.style.display = 'none';
+          }
+        }
+        
+        // Initialize theme on page load
+        function initTheme() {
+          var savedTheme = localStorage.getItem('color-theme');
+          var html = document.documentElement;
+          
+          console.log('Saved theme:', savedTheme);
+          
+          // Set initial theme
+          if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+          } else {
+            html.classList.remove('dark');
+          }
+          
+          // Update icons
+          updateThemeIcons();
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', initTheme);
+        document.addEventListener('DOMContentLoaded', initTheme);
+</script>
+
+<!-- Theme Toggle Button -->
+<div class="toggle-button fixed right-5 max-lg:bottom-2.5 lg:top-1/3 z-[10000000000]">
+  <button
+    id="theme-toggle"
+    type="button"
+    onclick="toggleTheme()"
+    class="text-paragraph dark:text-white focus:outline-none focus:ring-0 focus:ring-gray-200 w-12 h-12 border rounded-md border-paragraph/25 dark:border-borderColour-dark flex justify-center items-center bg-white dark:bg-dark-300 hover:bg-gray-50 dark:hover:bg-dark-200 transition-colors duration-200 shadow-lg cursor-pointer"
+    title="Toggle light/dark mode"
+  >
+    <!-- Moon icon (show in light mode) -->
+    <svg
+      id="theme-toggle-dark-icon"
+      class="w-5 h-5"
+      style="display: block;"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+    </svg>
+    
+    <!-- Sun icon (show in dark mode) -->
+    <svg
+      id="theme-toggle-light-icon"
+      class="w-5 h-5"
+      style="display: none;"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+</div>
+
+<!-- Header Section -->
+<section class="bg-primary text-white py-16 relative overflow-hidden">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">Tired of Late Payments and Manual Billing?</h1>
+    <h2 class="text-xl md:text-2xl font-semibold mb-6">Discover How to Get Paid Faster with Automation</h2>
+    <p class="text-lg leading-relaxed max-w-3xl mx-auto">Join our FREE live webinar and learn how to simplify your invoicing, automate follow-ups, and take control of your finances — no technical skills required!</p>
+  </div>
+  
+  <!-- Background Elements -->
+  <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/10 rounded-full blur-3xl -z-10"></div>
+</section>
+
+<!-- Webinar Details Section -->
+<section class="py-16 bg-white dark:bg-dark-300">
+  <div class="container mx-auto px-4">
+    <h3 class="text-3xl md:text-4xl font-bold text-center mb-8 text-paragraph dark:text-white">Webinar Details</h3>
+    <div class="text-xl md:text-2xl text-center leading-relaxed text-gray-700 dark:text-gray-300 mb-12">
+      <p class="mb-2"><strong class="text-paragraph dark:text-white">Date:</strong> 2nd August 2025</p>
+      <p class="mb-2"><strong class="text-paragraph dark:text-white">Time:</strong> 7:00 PM (IST)</p>
+      <p><strong class="text-paragraph dark:text-white">Platform:</strong> Live on Zoom (Link will be emailed after registration)</p>
+    </div>
+
+    <!-- Registration Form Section -->
+    <div class="max-w-md mx-auto bg-gray-50 dark:bg-dark-200 rounded-lg shadow-box p-8">
+      <h3 class="text-3xl font-bold text-center mb-4 text-paragraph dark:text-white">Reserve Your Spot — It's Free!</h3>
+      <p class="text-center text-lg mb-6 text-gray-600 dark:text-gray-300">Enter your name and email below to join the webinar.</p>
+
+      <form method="post" action="https://sendfox.com/form/1xkdnm/m2e6o6" class="sendfox-form space-y-4" id="m2e6o6" data-async="false" data-recaptcha="false">
+        <div>
+          <label for="sendfox_form_name" class="block text-sm font-semibold text-paragraph dark:text-white mb-2">First Name:</label>
+          <input type="text" 
+                 id="sendfox_form_name" 
+                 placeholder="First Name" 
+                 name="first_name" 
+                 required 
+                 class="w-full border border-borderColour dark:border-borderColour-dark rounded-lg px-4 py-3 bg-white dark:bg-dark-300 text-paragraph dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" />
+        </div>
+        
+        <div>
+          <label for="sendfox_form_last_name" class="block text-sm font-semibold text-paragraph dark:text-white mb-2">Last Name:</label>
+          <input type="text" 
+                 id="sendfox_form_last_name" 
+                 placeholder="Last Name" 
+                 name="last_name" 
+                 required 
+                 class="w-full border border-borderColour dark:border-borderColour-dark rounded-lg px-4 py-3 bg-white dark:bg-dark-300 text-paragraph dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" />
+        </div>
+        
+        <div>
+          <label for="sendfox_form_email" class="block text-sm font-semibold text-paragraph dark:text-white mb-2">Email:</label>
+          <input type="email" 
+                 id="sendfox_form_email" 
+                 placeholder="Email" 
+                 name="email" 
+                 required 
+                 class="w-full border border-borderColour dark:border-borderColour-dark rounded-lg px-4 py-3 bg-white dark:bg-dark-300 text-paragraph dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200" />
+        </div>
+        
+        <!-- no botz please -->
+        <div class="absolute left-[-5000px]" aria-hidden="true">
+          <input type="text" name="a_password" tabindex="-1" value="" autocomplete="off" />
+        </div>
+        
+        <button type="submit" class="btn w-full">Register Now</button>
+      </form>
+
+      <!-- SendFox script -->
+      <script src="https://cdn.sendfox.com/js/form.js" charset="utf-8"></script>
+    </div>
+  </div>
+</section>
+
+<!-- What You'll Learn Section -->
+<section class="py-16 bg-gray-50 dark:bg-dark-200">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-8 text-paragraph dark:text-white">What You'll Learn in This Webinar</h3>
+      <div class="bg-white dark:bg-dark-300 rounded-lg p-8 shadow-box">
+        <ul class="space-y-4 text-lg">
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <span class="text-gray-700 dark:text-gray-300">How to automate invoicing and get paid faster</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <span class="text-gray-700 dark:text-gray-300">Smart reminders that reduce follow-ups</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <span class="text-gray-700 dark:text-gray-300">Creating GST-compliant invoices in seconds</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <span class="text-gray-700 dark:text-gray-300">Tracking payments & reports with zero hassle</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <span class="text-gray-700 dark:text-gray-300">Live Q&A with invoicing experts</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Grow Invoice Section -->
+<section class="py-16 bg-primary">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6 text-white">About Grow Invoice</h3>
+      <p class="text-lg text-white/90 leading-relaxed">Grow Invoice is India's smart invoicing solution designed for small businesses and freelancers. From creating GST invoices to sending automated payment reminders — we help you focus on growth, not paperwork.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Host Section -->
+<section class="py-16 bg-white dark:bg-dark-300">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-8 text-paragraph dark:text-white">Meet Your Host</h3>
+      <div class="bg-gray-50 dark:bg-dark-200 rounded-lg p-8 shadow-box">
+        <div class="mb-6">
+          <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-white font-bold text-2xl">AR</span>
+          </div>
+          <h4 class="text-xl font-semibold text-paragraph dark:text-white">Anirban Roy</h4>
+          <p class="text-gray-600 dark:text-gray-300">Founder of Grow Invoice | 14+ years in business automation</p>
+        </div>
+        <blockquote class="text-lg text-gray-700 dark:text-gray-300 italic">
+          "After helping 500+ businesses streamline their invoicing, I'm now sharing the exact tools and methods to save your time and get paid faster."
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 bg-gray-50 dark:bg-dark-200">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-8 text-paragraph dark:text-white">Frequently Asked Questions</h3>
+      <div class="space-y-6">
+        <div class="bg-white dark:bg-dark-300 rounded-lg p-6 shadow-box">
+          <h4 class="text-lg font-semibold mb-3 text-paragraph dark:text-white">Is this webinar free?</h4>
+          <p class="text-gray-600 dark:text-gray-300">Yes, completely free! Just register and join us live.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-dark-300 rounded-lg p-6 shadow-box">
+          <h4 class="text-lg font-semibold mb-3 text-paragraph dark:text-white">Will I get a recording?</h4>
+          <p class="text-gray-600 dark:text-gray-300">Yes, we'll send a replay to all registered participants.</p>
+        </div>
+        
+        <div class="bg-white dark:bg-dark-300 rounded-lg p-6 shadow-box">
+          <h4 class="text-lg font-semibold mb-3 text-paragraph dark:text-white">Is this technical?</h4>
+          <p class="text-gray-600 dark:text-gray-300">Not at all — it's built for business owners, not coders.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="py-16 bg-primary">
+  <div class="container mx-auto px-4 text-center">
+    <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">Don't Miss This Opportunity!</h3>
+    <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+      Reserve your spot now and discover how to transform your invoicing process forever.
+    </p>
+    <a href="#registration" class="btn bg-white text-primary hover:bg-gray-100 inline-block text-lg px-8 py-4">
+      Register Now - It's Free!
+    </a>
+  </div>
+</section> 
