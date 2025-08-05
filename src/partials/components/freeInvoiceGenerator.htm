@@ -58,18 +58,19 @@
       </p>
     </div>
     
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
       <!-- Template 1 -->
-      <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="group cursor-pointer relative">
         <div class="bg-white dark:bg-dark-200 rounded-lg shadow-box overflow-hidden border border-gray-100 dark:border-borderColour-dark">
           <div class="relative overflow-hidden">
-            <img 
-              src="images/templates/tem-1.jpg" 
-              alt="Professional Invoice Template 1 - Clean and Modern Design" 
-              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+            <a href="images/templates/tem-1.jpg" data-fancybox="invoice-templates" data-caption="Modern Professional - Clean, minimalist design perfect for tech companies and consultants">
+              <img 
+                src="images/templates/tem-1.jpg" 
+                alt="Professional Invoice Template 1 - Clean and Modern Design" 
+                class="w-full h-48 object-cover cursor-pointer"
+                loading="lazy"
+              />
+            </a>
           </div>
           <div class="p-4">
             <h3 class="text-lg font-semibold mb-2 text-paragraph dark:text-white">Modern Professional</h3>
@@ -83,16 +84,17 @@
       </div>
       
       <!-- Template 2 -->
-      <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="group cursor-pointer relative">
         <div class="bg-white dark:bg-dark-200 rounded-lg shadow-box overflow-hidden border border-gray-100 dark:border-borderColour-dark">
           <div class="relative overflow-hidden">
-            <img 
-              src="images/templates/tem-2.png" 
-              alt="Business Invoice Template 2 - Corporate Style Design" 
-              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+            <a href="images/templates/tem-2.png" data-fancybox="invoice-templates" data-caption="Corporate Classic - Traditional business layout ideal for established companies">
+              <img 
+                src="images/templates/tem-2.png" 
+                alt="Business Invoice Template 2 - Corporate Style Design" 
+                class="w-full h-48 object-cover cursor-pointer"
+                loading="lazy"
+              />
+            </a>
           </div>
           <div class="p-4">
             <h3 class="text-lg font-semibold mb-2 text-paragraph dark:text-white">Corporate Classic</h3>
@@ -106,16 +108,17 @@
       </div>
       
       <!-- Template 3 -->
-      <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="group cursor-pointer relative">
         <div class="bg-white dark:bg-dark-200 rounded-lg shadow-box overflow-hidden border border-gray-100 dark:border-borderColour-dark">
           <div class="relative overflow-hidden">
-            <img 
-              src="images/templates/tem-3.png" 
-              alt="Creative Invoice Template 3 - Artistic Design" 
-              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+            <a href="images/templates/tem-3.png" data-fancybox="invoice-templates" data-caption="Creative Elegant - Artistic design perfect for creative agencies and designers">
+              <img 
+                src="images/templates/tem-3.png" 
+                alt="Creative Invoice Template 3 - Artistic Design" 
+                class="w-full h-48 object-cover cursor-pointer"
+                loading="lazy"
+              />
+            </a>
           </div>
           <div class="p-4">
             <h3 class="text-lg font-semibold mb-2 text-paragraph dark:text-white">Creative Elegant</h3>
@@ -129,16 +132,17 @@
       </div>
       
       <!-- Template 4 -->
-      <div class="group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+      <div class="group cursor-pointer relative">
         <div class="bg-white dark:bg-dark-200 rounded-lg shadow-box overflow-hidden border border-gray-100 dark:border-borderColour-dark">
           <div class="relative overflow-hidden">
-            <img 
-              src="images/templates/tem-4.png" 
-              alt="Simple Invoice Template 4 - Minimalist Design" 
-              class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              loading="lazy"
-            />
-            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
+            <a href="images/templates/tem-4.png" data-fancybox="invoice-templates" data-caption="Simple Clean - Minimalist template ideal for freelancers and small businesses">
+              <img 
+                src="images/templates/tem-4.png" 
+                alt="Simple Invoice Template 4 - Minimalist Design" 
+                class="w-full h-48 object-cover cursor-pointer"
+                loading="lazy"
+              />
+            </a>
           </div>
           <div class="p-4">
             <h3 class="text-lg font-semibold mb-2 text-paragraph dark:text-white">Simple Clean</h3>
@@ -561,4 +565,57 @@
       Get Started Now - It's Free!
     </a>
   </div>
-</section> 
+</section>
+
+<!-- Fancybox Initialization Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Fancybox for invoice templates
+    Fancybox.bind('[data-fancybox="invoice-templates"]', {
+      // Animation duration
+      speed: 300,
+      
+      // Show close button
+      closeButton: true,
+      
+      // Show navigation arrows
+      arrows: true,
+      
+      // Show thumbnails
+      thumbs: {
+        autoStart: true
+      },
+      
+      // Fullscreen mode
+      fullscreen: {
+        autoStart: true
+      },
+      
+      // Keyboard navigation
+      keyboard: {
+        Escape: "close",
+        Delete: "close",
+        Backspace: "close",
+        PageUp: "next",
+        PageDown: "prev",
+        ArrowUp: "next",
+        ArrowDown: "prev",
+        ArrowRight: "next",
+        ArrowLeft: "prev"
+      },
+      
+      // Touch gestures
+      touch: {
+        vertical: true,
+        momentum: true
+      },
+      
+      // Image settings
+      Image: {
+        zoom: true,
+        click: "close",
+        wheel: "slide"
+      }
+    });
+  });
+</script> 
