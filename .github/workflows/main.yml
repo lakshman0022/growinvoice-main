@@ -39,5 +39,5 @@ jobs:
         with:
           server: "ftp.growinvoice.com"
           username: "u644247801.growinvoice_homepage"
-          password: "Growinvoice@2024"
+          password: "A[5JpLwm3EJHS9Lb"
           local-dir: ./dist/
