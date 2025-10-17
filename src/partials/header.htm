@@ -38,6 +38,41 @@
   <!-- JavaScript Libraries -->
   <script src="vendor/fancybox/fancybox.umd.js"></script>
 
+  <!-- Active Tab Styles -->
+  <style>
+    .nav-link.active {
+      position: relative;
+    }
+    
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 3px;
+      /* background: linear-gradient(90deg, #10b981, #059669); */
+      border-radius: 2px;
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from {
+        width: 0%;
+        opacity: 0;
+      }
+      to {
+        width: 80%;
+        opacity: 1;
+      }
+    }
+    
+    .nav-link.active:hover::after {
+      background: linear-gradient(90deg, #10b981, #059669);
+    }
+  </style>
+
   <!--Favicon-->
   <link rel="apple-touch-icon" sizes="57x57" href="images/logo-invoic.png">
   <link rel="apple-touch-icon" sizes="60x60" href="images/logo-invoic.png">
@@ -87,3 +122,39 @@
       </svg>
     </button>
   </div>
+
+  <!-- Active Tab Detection Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get current page path
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.split('/').pop() || 'index.html';
+      
+      // Remove .html extension for comparison
+      const pageName = currentPage.replace('.html', '');
+      
+      // Add active class to matching navigation links
+      const navLinks = document.querySelectorAll('.nav-list a[href]');
+      
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const linkPage = href.split('/').pop() || 'index.html';
+        const linkPageName = linkPage.replace('.html', '');
+        
+        // Check if this link matches the current page
+        if (linkPageName === pageName || 
+            (pageName === 'index' && linkPageName === 'index') ||
+            (pageName === 'about' && linkPageName === 'about') ||
+            (pageName === 'price' && linkPageName === 'price') ||
+            (pageName === 'integration' && linkPageName === 'integration') ||
+            (pageName === 'contact' && linkPageName === 'contact')) {
+          
+          // Add nav-link class and active class
+          link.classList.add('nav-link', 'active');
+        } else {
+          // Add nav-link class but not active
+          link.classList.add('nav-link');
+        }
+      });
+    });
+  </script>
