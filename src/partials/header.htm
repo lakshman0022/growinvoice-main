@@ -27,6 +27,51 @@
     gtag('config', 'G-K2D6JZR74S');
   </script>
 
+  <!-- Location-based Redirection Script -->
+  <script>
+    console.log('Location script loaded - version 2.0');
+    // European countries list
+    const europeanCountries = [
+      'AD', 'AL', 'AT', 'BA', 'BE', 'BG', 'BY', 'CH', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'FI', 'FR', 'GB', 'GE', 'GR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LI', 'LT', 'LU', 'LV', 'MC', 'MD', 'ME', 'MK', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'RS', 'RU', 'SE', 'SI', 'SK', 'SM', 'UA', 'VA', 'XK'
+    ];
+
+    // Function to check if user is in Europe and redirect
+    async function checkLocationAndRedirect() {
+      try {
+        // Check if user has already been redirected in this session
+        const hasBeenRedirected = sessionStorage.getItem('europeanRedirected');
+        
+        // If user is on EU price page, mark them as redirected and allow free navigation
+        if (window.location.pathname.includes('eu-price.html')) {
+          sessionStorage.setItem('europeanRedirected', 'true');
+          return;
+        }
+
+        // If user has already been redirected, allow them to browse freely
+        if (hasBeenRedirected === 'true') {
+          return;
+        }
+
+        // Fetch user's location data
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        
+        // Check if user is in Europe
+        if (data.country_code && europeanCountries.includes(data.country_code)) {
+          // Mark as redirected and redirect to EU price page
+          sessionStorage.setItem('europeanRedirected', 'true');
+          window.location.href = '/eu-price.html';
+        }
+      } catch (error) {
+        // If API fails, continue normally (don't block the page)
+        console.log('Location detection failed:', error);
+      }
+    }
+
+    // Run location check when page loads
+    document.addEventListener('DOMContentLoaded', checkLocationAndRedirect);
+  </script>
+
   <!-- Stylesheets -->
 
   <link href="vendor/fontawesome/all.css" rel="stylesheet" />
