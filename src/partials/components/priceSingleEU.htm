@@ -71,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // EU Pricing plans with Euro conversion (approximate 1 INR = 0.011 EUR)
     const plans = [
         {
-            name: "Free",
-            basePrice: 0,
+            name: "Free (14 Days)",
+            basePrice: 0 ,
             bestFor: "Freelancers, SHGs, Local sellers",
             features: [
                 "✅ Unlimited Invoices & Quotations",
@@ -81,15 +81,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 "✅ Basic Templates",
                 "✅ GSTIN Support",
                 "✅ Basic Expense Tracking",
-                "❌ AI Upload (PDF/Image to Invoice)",
-                "❌ Payment Link / Gateway Integration",
-                "❌ Tally Export",
-                "❌ Custom Branding"
+                "✅AI Upload (PDF/Image to Invoice)",
+                "✅ Payment Link / Gateway Integration",
+                "✅ Tally Export",
+                "✅ Custom Branding"
             ]
         },
         {
             name: "Pro",
-            basePrice: 11, // ~₹999 converted to EUR
+            basePrice: 12.99,
             bestFor: "MSMEs, Coaching Classes",
             features: [
                 "✅ Everything in Free",
@@ -101,58 +101,56 @@ document.addEventListener('DOMContentLoaded', () => {
             ],
             recommended: true
         },
-        {
-            name: "Plus",
-            basePrice: 22, // ~₹1999 converted to EUR
-            bestFor: "D2C Sellers, Traders, Coaches",
-            features: [
-                "✅ Everything in Pro",
-                "✅ WhatsApp Chat → Invoice AI",
-                "✅ AI Product Detection from Chats",
-                "✅ Stock & Expense Ledger",
-                "✅ Payment Tracking & Reminders",
-                "✅ Multilingual Invoices (Hindi, Bengali)"
-            ]
-        },
-        {
-            name: "Business",
-            basePrice: 33, // ~₹2999 converted to EUR
-            bestFor: "Retailers, Agencies, Distributors",
-            features: [
-                "✅ Everything in Plus",
-                "✅ 3 Users",
-                "✅ POS Mode (Desktop/Mobile)",
-                "✅ Recurring Billing & Subscriptions",
-                "✅ Bulk Excel Uploads",
-                "✅ All Payment Modes: QR, Stripe, PayPal, Bank, Cash"
-            ]
-        },
-        {
-            name: "Ultimate",
-            basePrice: 88, // ~₹7999 converted to EUR
-            bestFor: "Global MSMEs, Agencies w/ Teams",
-            features: [
-                "✅ Everything in Business",
-                "✅ AI-Powered Storefront Creation",
-                "✅ Auto Social Media Posting",
-                "✅ Multiple Price Books (EUR, USD, etc.)",
-                "✅ International Payment Support",
-                "✅ Priority Support",
-                "✅ Team Access (up to 10 users)",
-                "✅ Advanced Reports & Analytics"
-            ]
-        }
+        // {
+        //     name: "Plus",
+        //     basePrice: 22, // ~₹1999 converted to EUR
+        //     bestFor: "D2C Sellers, Traders, Coaches",
+        //     features: [
+        //         "✅ Everything in Pro",
+        //         "✅ WhatsApp Chat → Invoice AI",
+        //         "✅ AI Product Detection from Chats",
+        //         "✅ Stock & Expense Ledger",
+        //         "✅ Payment Tracking & Reminders",
+        //         "✅ Multilingual Invoices (Hindi, Bengali)"
+        //     ]
+        // },
+        // {
+        //     name: "Business",
+        //     basePrice: 33, // ~₹2999 converted to EUR
+        //     bestFor: "Retailers, Agencies, Distributors",
+        //     features: [
+        //         "✅ Everything in Plus",
+        //         "✅ 3 Users",
+        //         "✅ POS Mode (Desktop/Mobile)",
+        //         "✅ Recurring Billing & Subscriptions",
+        //         "✅ Bulk Excel Uploads",
+        //         "✅ All Payment Modes: QR, Stripe, PayPal, Bank, Cash"
+        //     ]
+        // },
+        // {
+        //     name: "Ultimate",
+        //     basePrice: 88, // ~₹7999 converted to EUR
+        //     bestFor: "Global MSMEs, Agencies w/ Teams",
+        //     features: [
+        //         "✅ Everything in Business",
+        //         "✅ AI-Powered Storefront Creation",
+        //         "✅ Auto Social Media Posting",
+        //         "✅ Multiple Price Books (EUR, USD, etc.)",
+        //         "✅ International Payment Support",
+        //         "✅ Priority Support",
+        //         "✅ Team Access (up to 10 users)",
+        //         "✅ Advanced Reports & Analytics"
+        //     ]
+        // }
     ];
 
     // Calculate price based on billing period
     const calculatePrice = (basePrice) => {
         if (basePrice === 0) return "€0";
         if (isYearly) {
-            const monthlyPrice = Math.round(basePrice / 12 * 1.25);
-            return `€${monthlyPrice}/month`;
+            return `€${basePrice}/month`;
         } else {
-            const monthlyPrice = Math.round(basePrice / 12 * 1.25);
-            return `€${monthlyPrice}/month`;
+            return `€${basePrice}/month`;
         }
     };
 

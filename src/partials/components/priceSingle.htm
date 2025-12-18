@@ -17,17 +17,17 @@
 
       <div class="pricing mt-4">
         <label class="relative inline-flex items-center cursor-pointer z-[110]">
-          <span class="mr-2.5 text-base font-semibold text-paragraph dark:text-white py-5">Monthly</span>
+          <!-- <span class="mr-2.5 text-base font-semibold text-paragraph dark:text-white py-5">Monthly</span> -->
           <input
             type="checkbox"
             id="priceCheck"
             class="sr-only peer"
             checked
           />
-          <div
+          <!-- <div
             class="relative w-15 h-[34px] bg-paragraph rounded-[20px] peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-1/2 after:-translate-y-1/2 after:start-[5px] peer-checked:after:start-[7px] after:bg-primary after:rounded-full after:h-6 after:w-6 after:transition-all before:absolute before:content-[''] before:border before:border-dashed before:w-[calc(100%-10px)] before:h-[calc(100%-10px)] before:rounded-[20px] before:top-1/2 before:-translate-y-1/2 before:left-1/2 before:-translate-x-1/2 before:border-white/40"
-          ></div>
-          <span class="ms-2.5 text-base font-semibold text-paragraph dark:text-white py-5">Yearly <span class="text-sm text-primary">(Save 25%)</span></span>
+          ></div> -->
+          <!-- <span class="ms-2.5 text-base font-semibold text-paragraph dark:text-white py-5">Yearly <span class="text-sm text-primary">(Save 25%)</span></span> -->
         </label>
       </div>
     </div>
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hardcoded pricing plans based on your React component
     const plans = [
         {
-            name: "Free",
+            name: "Free (100 Days)",
             basePrice: 0,
             bestFor: "Freelancers, SHGs, Local sellers",
             features: [
@@ -82,46 +82,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 "❌ Custom Branding"
             ]
         },
-        {
-            name: "Pro",
-            basePrice: 999,
-            bestFor: "MSMEs, Coaching Classes",
-            features: [
-                "✅ Everything in Free",
-                "✅ AI PDF/Image → Invoice Generator",
-                "✅ Custom Branding (logo, footer)",
-                "✅ 'Pay Now' Button (UPI, Stripe, Razorpay, PayPal)",
-                "✅ Tally Export",
-                "✅ GST Summary Reports"
-            ],
-            recommended: true
-        },
-        {
-            name: "Plus",
-            basePrice: 1999,
-            bestFor: "D2C Sellers, Traders, Coaches",
-            features: [
-                "✅ Everything in Pro",
-                "✅ WhatsApp Chat → Invoice AI",
-                "✅ AI Product Detection from Chats",
-                "✅ Stock & Expense Ledger",
-                "✅ Payment Tracking & Reminders",
-                "✅ Multilingual Invoices (Hindi, Bengali)"
-            ]
-        },
-        {
-            name: "Business",
-            basePrice: 2999,
-            bestFor: "Retailers, Agencies, Distributors",
-            features: [
-                "✅ Everything in Plus",
-                "✅ 3 Users",
-                "✅ POS Mode (Desktop/Mobile)",
-                "✅ Recurring Billing & Subscriptions",
-                "✅ Bulk Excel Uploads",
-                "✅ All Payment Modes: QR, Stripe, PayPal, Bank, Cash"
-            ]
-        },
+        // {
+        //     name: "Pro",
+        //     basePrice: 999,
+        //     bestFor: "MSMEs, Coaching Classes",
+        //     features: [
+        //         "✅ Everything in Free",
+        //         "✅ AI PDF/Image → Invoice Generator",
+        //         "✅ Custom Branding (logo, footer)",
+        //         "✅ 'Pay Now' Button (UPI, Stripe, Razorpay, PayPal)",
+        //         "✅ Tally Export",
+        //         "✅ GST Summary Reports"
+        //     ],
+        //     recommended: true
+        // },
+        // {
+        //     name: "Plus",
+        //     basePrice: 1999,
+        //     bestFor: "D2C Sellers, Traders, Coaches",
+        //     features: [
+        //         "✅ Everything in Pro",
+        //         "✅ WhatsApp Chat → Invoice AI",
+        //         "✅ AI Product Detection from Chats",
+        //         "✅ Stock & Expense Ledger",
+        //         "✅ Payment Tracking & Reminders",
+        //         "✅ Multilingual Invoices (Hindi, Bengali)"
+        //     ]
+        // },
+        // {
+        //     name: "Business",
+        //     basePrice: 2999,
+        //     bestFor: "Retailers, Agencies, Distributors",
+        //     features: [
+        //         "✅ Everything in Plus",
+        //         "✅ 3 Users",
+        //         "✅ POS Mode (Desktop/Mobile)",
+        //         "✅ Recurring Billing & Subscriptions",
+        //         "✅ Bulk Excel Uploads",
+        //         "✅ All Payment Modes: QR, Stripe, PayPal, Bank, Cash"
+        //     ]
+        // },
         {
             name: "Ultimate",
             basePrice: 7999,
