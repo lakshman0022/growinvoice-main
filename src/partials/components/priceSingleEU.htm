@@ -179,6 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const planCard = document.createElement('div');
             planCard.className = `bg-white dark:bg-dark-200 shadow-box rounded-medium p-2.5 w-full h-full flex flex-col ${plan.recommended ? 'border-2 border-primary' : ''} ${extraClass}`;
             
+            // Add AOS attributes
+            planCard.setAttribute('data-aos', 'fade-up');
+            planCard.setAttribute('data-aos-delay', (idx * 100).toString());
+            planCard.setAttribute('data-aos-once', 'true');
+
             const featuresHtml = plan.features
                 .map(feature => {
                     const isIncluded = feature.startsWith('✅');
@@ -226,6 +231,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             plansContainer.appendChild(planCard);
         });
+        
+        // Refresh AOS to detect new elements
+        if (typeof AOS !== 'undefined') {
+            AOS.refresh();
+        }
     };
 
     // Toggle event listener
