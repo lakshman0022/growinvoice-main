@@ -37,7 +37,7 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: "ftp.growinvoice.com"
+          server: "93.127.205.235"
           username: "u644247801.growinvoice_homepage"
           password: "A[5JpLwm3EJHS9Lb"
           local-dir: ./dist/
