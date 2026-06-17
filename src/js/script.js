@@ -13,6 +13,7 @@ if (
   document.documentElement.classList.remove("dark");
 }
 
+
 var themeToggleBtn = document.getElementById("theme-toggle");
 
 themeToggleBtn.addEventListener("click", function () {
@@ -159,9 +160,8 @@ if (trusted_counter) {
         if (counter.parentElement.style.animation) {
           counter.parentElement.style.animation = "";
         } else {
-          counter.parentElement.style.animation = `slide-up 0.3s ease forwards ${
-            index / trusted_counters.length + 1.5
-          }s`;
+          counter.parentElement.style.animation = `slide-up 0.3s ease forwards ${index / trusted_counters.length + 1.5
+            }s`;
         }
       });
       observer.unobserve(trusted_counter);
@@ -351,7 +351,7 @@ Fancybox.bind("[data-fancybox]", {
 // motion animationn
 gsap.registerPlugin(MotionPathPlugin);
 
-gsap.set("#rect, #rect-2, #rect-3, #rect-4, #rect-5, #rect-6", {opacity: 1});
+gsap.set("#rect, #rect-2, #rect-3, #rect-4, #rect-5, #rect-6", { opacity: 1 });
 gsap.from("#rect", {
   motionPath: {
     path: "#path",
